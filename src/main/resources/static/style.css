@@ -1,0 +1,13 @@
+#login {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    width: 200px;
+    height: 20px;
+    margin: auto;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+}
+#login a {
+padding: 10px;
+}
