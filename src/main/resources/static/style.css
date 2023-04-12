@@ -1,6 +1,8 @@
 * {
     font-family: GothamRounded,Arial,sans-serif;
-
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
 }
 
 #login {
@@ -10,7 +12,7 @@
     width: 200px;
     height: 20px;
     margin: auto;
-    position: absolute;
+    position: fixed;
     top: 0; left: 0; bottom: 0; right: 0;
 }
 #login a {
@@ -31,4 +33,28 @@ button {
     border: none;
     text-transform: uppercase;
     font-size: 14px;
+}
+.outer-div {
+
+    height: 90%; /* set a fixed height for the container */
+    width: 80%;
+    overflow: auto; /* make the container scrollable */
+    margin-left: 9.5%;
+    margin-right: 9.5%;
+    margin-top: 5%;
+}
+
+.outer-div::-webkit-scrollbar {
+    width: 0.5rem;
+    height: 0.5rem;
+}
+
+.outer-div::-webkit-scrollbar-thumb {
+    border-radius: .5rem;
+    background-color: #0004;
+    visibility: hidden;
+}
+
+.outer-div:hover::-webkit-scrollbar-thumb {
+    visibility: visible;
 }
