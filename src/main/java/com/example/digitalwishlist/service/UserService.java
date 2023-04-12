@@ -16,4 +16,8 @@ public class UserService {
         userRepo.addUser(user);
     }
 
+    public User logIn(String user_name, String user_password){
+        return userRepo.logIn(user_name, user_password);
+    }
+
 }

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
@@ -15,6 +16,7 @@ public class MainController {
 
     @Autowired
     UserService userService;
+
 
 
     @GetMapping("/signUp")
@@ -28,5 +30,16 @@ public class MainController {
         return "redirect:/";
     }
 
-
+    @GetMapping("/login")
+    public String login(){return "/login";}
+    @PostMapping("/userLogin")
+    public String newLogin(@ModelAttribute User user, Model model){
+        User loggedInUser = userService.logIn(user.getUser_name(), user.getUser_password());
+        if(loggedInUser != null){
+            model.addAttribute("user", loggedInUser);
+            return "mainPage";
+        } else {
+            return "index";
+        }
+    }
 }
