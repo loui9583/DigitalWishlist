@@ -27,6 +27,8 @@
         <p><input type="password" name="user_password" placeholder="Password" required /></p>
         <input id="submit-button" style="margin-top: 10px;" type="submit" value="Login">
     </form>
+
+    <p th:if="${error}" th:text="${error}" style="color: red;"></p>
     <br>
 </div>
 </body>
