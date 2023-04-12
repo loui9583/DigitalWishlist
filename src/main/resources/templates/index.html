@@ -3,40 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Digital Wishlist</title>
-    <link rel="icon" href="sky.svg" type="image/icon type">
-    <!-- bruger th:href med @ for at få fat til stylesheet
-    i gennem thymeleaf link i stedet for manuelt i mappen, da det kan
-     give problemer at linke direkte til mappen når man lave postmappings og-->
-    <link rel="stylesheet" type="text/css" th:href="@{/style.css}" />
+    <link href="sky.svg" rel="icon" type="image/icon type">
+    <link rel="stylesheet" th:href="@{/style.css}" type="text/css"/>
 </head>
 <body>
-<div>
-<a href="#">
-<img src="logo.png">
-</a>
+<div id="logo-div">
+    <a href="/">
+        <img alt="logo" id="logo-img" src="logo.png">
+    </a>
 </div>
 <div id="login">
-
-
-    <a href="/loginform">
-        <button>Log in</button>
-    </a>
-
-    <a href="/signUp">
-    <button>Sign Up</button>
-    </a>
+    <button onclick="window.location.href='loginForm'">Log in</button>
+    <button onclick="window.location.href='signUpForm'">Sign Up</button>
 </div>
-<!--<table>
-    <thead>
-    <tr>
-        <th>Name</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="user : ${users}">
-        <td th:text="${user.user_name}"></td>
-    </tr>
-    </tbody>
-</table>-->
 </body>
 </html>

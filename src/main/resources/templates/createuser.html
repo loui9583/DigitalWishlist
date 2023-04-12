@@ -4,40 +4,30 @@
     <meta charset="UTF-8">
     <title>Digital Wishlist</title>
     <link href="sky.svg" rel="icon" type="image/icon type">
-    <!-- bruger th:href med @ for at få fat til stylesheet
-    i gennem thymeleaf link i stedet for manuelt i mappen, da det kan
-     give problemer at linke direkte til mappen når man lave postmappings og-->
     <link rel="stylesheet" th:href="@{/style.css}" type="text/css"/>
 </head>
 <body>
-
-
-<div style="position: absolute; width: 99.5%; height: 10%; background-color: white; margin: 0; padding: 0;">
-    <img alt="logo" src="logo.png" style="position: sticky; height: 100%">
+<div id="logo-div">
+    <a href="/">
+        <img alt="logo" id="logo-img" src="logo.png">
+    </a>
 </div>
 <br><br><br><br><br><br>
-
-<div id="signup" style="text-align: center; width: 30%; border: 2px solid black; border-radius: .3rem; margin-right: 34.5%; margin-left: 34.5%; background: linear-gradient(166.64deg, rgb(59, 210, 247) 0.63%, rgb(2, 126, 179) 99.21%);">
-        <br>
-        <h1 style="font-size: 20px; font-weight: bolder;">Create new User</h1>
-        <br>
-            <form action="newSignUp" method="post">
-                <label>Insert Username</label>
-                <br>
-                <input name="user_name" type="text">
-                <br><br>
-                <label>Insert Password</label>
-                <br>
-                <input name="user_password" type="password">
-                <br><br>
-                <label>Insert Email</label>
-                <br>
-                <input name="user_email" type="email">
-                <br><br>
-                <input id="submit-button" style="margin-top: 10px;" type="submit" value="Sign up">
-                <br><br>
-            </form>
-        <br>
+<div id="content">
+    <br>
+    <h1>Create New User</h1>
+    <br>
+    <form action="newSignUp" method="post">
+        <input name="user_name" placeholder="Username" type="text">
+        <br><br>
+        <input name="user_password" placeholder="Password" type="password">
+        <br><br>
+        <input name="user_email" placeholder="Email" type="email">
+        <br><br>
+        <input class="submit-button" type="submit" value="Sign up">
+        <br><br>
+    </form>
+    <br>
 </div>
 </body>
 </html>
