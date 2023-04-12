@@ -1,16 +1,35 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <title>Digital Wishlist</title>
+    <link href="sky.svg" rel="icon" type="image/icon type">
+    <!-- bruger th:href med @ for at få fat til stylesheet
+    i gennem thymeleaf link i stedet for manuelt i mappen, da det kan
+     give problemer at linke direkte til mappen når man lave postmappings og-->
+    <link rel="stylesheet" th:href="@{/style.css}" type="text/css"/>
 </head>
 <body>
-<h1>Login</h1>
-<form th:action="@{/login}" method="post">
-    <p><input type="text" name="user_name" placeholder="Username" required /></p>
-    <p><input type="password" name="user_password" placeholder="Password" required /></p>
-    <p><button type="submit">Log in</button></p>
-</form>
-<p th:if="${error}" th:text="${error}" style="color: red;"></p>
+
+
+<div style="position: absolute; width: 99.5%; height: 10%; background-color: white; margin: 0; padding: 0;">
+    <img alt="logo" src="logo.png" style="position: sticky; height: 100%">
+</div>
+<br><br><br><br><br><br>
+
+<div id="signup" style="text-align: center; width: 30%; border: 2px solid black; border-radius: .3rem; margin-right: 34.5%; margin-left: 34.5%; background: linear-gradient(166.64deg, rgb(59, 210, 247) 0.63%, rgb(2, 126, 179) 99.21%);">
+    <br>
+    <h1 style="font-size: 20px; font-weight: bolder;">Login</h1>
+    <br>
+
+    <form th:action="@{/login}" method="post">
+        <p><input type="text" name="user_name" placeholder="Username" required /></p>
+        <p><input type="password" name="user_password" placeholder="Password" required /></p>
+        <input id="submit-button" style="margin-top: 10px;" type="submit" value="Login">
+    </form>
+    <br>
+</div>
 </body>
 </html>
+
+
