@@ -15,15 +15,6 @@ public class TestRepo {
         this.template = new JdbcTemplate(dataSource);
     }
 
-    public List<User> findAll() {
-        String sql = "SELECT * FROM user";
-        return template.query(sql, (rs, rowNum) ->
-                new User(
-                        rs.getInt("user_id"),
-                        rs.getString("user_name"),
-                        rs.getString("user_password")
-                )
-        );
-    }
+
 
 }
