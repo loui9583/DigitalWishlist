@@ -15,6 +15,7 @@
     position: fixed;
     top: 0; left: 0; bottom: 0; right: 0;
 }
+
 #login a {
 padding: 10px;
 }
@@ -57,4 +58,49 @@ button {
 
 .outer-div:hover::-webkit-scrollbar-thumb {
     visibility: visible;
+}
+
+#submit-button {
+    padding: 3px;
+    background: black;
+    color: white;
+    border-radius: .3rem;
+    width: 150px;
+    height: 35px;
+    border: none;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+#signup h1, #signup label{
+    color: white;
+}
+
+.form-box {
+    position: relative;
+    width: 400px;
+    height: 450px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#signup label {
+    text-align: left;
+}
+
+.register{
+    font-size: .9em;
+    color: white;
+    text-align: center;
+}
+.register p a{
+    text-decoration: none;
+    color: white;
+}
+.register p a:hover{
+    text-decoration: underline;
 }
