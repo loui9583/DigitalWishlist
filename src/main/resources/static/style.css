@@ -1,3 +1,8 @@
+* {
+    font-family: GothamRounded,Arial,sans-serif;
+
+}
+
 #login {
     display: flex;
     justify-content: center;
@@ -10,4 +15,20 @@
 }
 #login a {
 padding: 10px;
+}
+
+body {
+    background-color: #F8FBFF;
+}
+
+button {
+    padding: 3px;
+    background: linear-gradient(166.64deg, rgb(59, 210, 247) 0.63%, rgb(2, 126, 179) 99.21%);
+    color: white;
+    border-radius: .3rem;
+    width: 175px;
+    height: 50px;
+    border: none;
+    text-transform: uppercase;
+    font-size: 14px;
 }
