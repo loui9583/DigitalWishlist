@@ -12,8 +12,12 @@ public class UserService {
     @Autowired
     UserRepo userRepo;
 
-    public void addUser(User user){
+    public void addUser(User user) {
         userRepo.addUser(user);
+    }
+
+    public User logIn(String user_name, String user_password) {
+        return userRepo.logIn(user_name, user_password);
     }
 
 }

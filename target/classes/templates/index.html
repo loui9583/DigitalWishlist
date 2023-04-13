@@ -2,37 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-
-    <!-- bruger th:href med @ for at få fat til stylesheet
-    i gennem thymeleaf link i stedet for manuelt i mappen, da det kan
-     give problemer at linke direkte til mappen når man lave postmappings og-->
-    <link rel="stylesheet" type="text/css" th:href="@{/style.css}" />
+    <title>Digital Wishlist</title>
+    <link href="sky.svg" rel="icon" type="image/icon type">
+    <link rel="stylesheet" th:href="@{/style.css}" type="text/css"/>
 </head>
 <body>
-<h1 style="width: 100%; background-color: red;">Digital wishlist:D</h1>
-<div id="login">
-
-
-    <a href="#">
-        <button>Log in</button>
-    </a>
-
-    <a href="/signUp">
-    <button>Sign Up</button>
+<div id="logo-div">
+    <a href="/">
+        <img alt="logo" id="logo-img" src="logo.png">
     </a>
 </div>
-<!--<table>
-    <thead>
-    <tr>
-        <th>Name</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="user : ${users}">
-        <td th:text="${user.user_name}"></td>
-    </tr>
-    </tbody>
-</table>-->
+<div id="login">
+    <button onclick="window.location.href='loginForm'">Log in</button>
+    <button onclick="window.location.href='signUpForm'">Sign Up</button>
+</div>
 </body>
 </html>

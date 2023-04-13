@@ -8,7 +8,7 @@ public class User {
 
     private String user_email;
 
-   public User() {
+    public User() {
 
     }
 
@@ -43,10 +43,12 @@ public class User {
     public void setUser_password(String user_password) {
         this.user_password = user_password;
     }
-    public String getUser_email(){
+
+    public String getUser_email() {
         return user_email;
     }
-    public void setUser_email(String user_email){
-        this.user_email=user_email;
+
+    public void setUser_email(String user_email) {
+        this.user_email = user_email;
     }
 }
