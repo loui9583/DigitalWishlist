@@ -12,14 +12,6 @@ public class User {
 
     }
 
-    public User(int user_id, String user_name, String user_password, String user_email) {
-        this.user_id = user_id;
-        this.user_name = user_name;
-        this.user_password = user_password;
-        this.user_email = user_email;
-    }
-
-
     public int getUser_id() {
         return user_id;
     }

@@ -6,7 +6,7 @@ public class WishList {
     private int user_id;
     private String wishList_name;
 
-    public WishList(){
+    public WishList() {
 
     }
 

@@ -1,6 +1,4 @@
 package com.example.digitalwishlist.repository;
-
-import com.example.digitalwishlist.model.User;
 import com.example.digitalwishlist.model.WishList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
