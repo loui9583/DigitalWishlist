@@ -14,24 +14,16 @@
 <br><br><br><br><br><br>
 <div id="content">
     <br>
-    <h1 style="font-size: 20px; font-weight: bolder;">User Info</h1>
+    <h1 style="font-size: 20px; font-weight: bolder;">Making new Wishlist</h1>
     <br>
-    <table>
-        <tr>
-            <td>User ID:</td>
-            <td th:text="${user.user_id}"></td>
-        </tr>
-        <tr>
-            <td>Username:</td>
-            <td th:text="${user.user_name}"></td>
-        </tr>
-        <tr>
-            <td>Email:</td>
-            <td th:text="${user.user_email}"></td>
-        </tr>
-    </table>
-    <p style="color: red;" th:if="${error}" th:text="${error}"></p>
-    <br>
+    <form method="post" th:action="@{/createWishList}">
+        <p><input name="user_id" th:value="${user.user_id}" type="hidden"/></p>
+        <br>
+        <p><input name="wishlist_name" type="text" placeholder="Wishlist Name"></p>
+        <br>
+        <input class="submit-button" type="submit" value="Submit">
+        <br> <br>
+    </form>
 </div>
 </body>
 </html>
