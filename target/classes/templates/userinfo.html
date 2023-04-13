@@ -36,7 +36,12 @@
             <td th:text="${wishlist.wishList_name}"></td>
             <td th:text="${wishlist.wishList_id}"></td>
             <td>
-                <button class="btn btn-secondary">Open</button>
+                <form method="post" th:action="@{/openwishlist}">
+                    <span><input name="wishlist_id" th:value="${wishlist.wishList_id}" type="hidden"></span>
+                    <input class="submit-button" type="submit" value="Open WishList">
+                </form>
+
+
                 <button class="btn btn-secondary">Delete</button>
             </td>
         </tr>

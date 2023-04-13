@@ -21,6 +21,8 @@ public class WishListService {
        return wishListRepo.getUserWishLists(user_id);
     }
 
-
+    public WishList getWishList(int wishlist_id) {
+        return wishListRepo.getWishList(wishlist_id);
+    }
 
 }

@@ -23,4 +23,9 @@ public class WishListRepo {
        return template.query(sql, new BeanPropertyRowMapper<>(WishList.class), user_id);
    }
 
+   public WishList getWishList(int wishlist_id) {
+       String sql = "SELECT * FROM wishlist WHERE wishlist_id = ?";
+       return template.queryForObject(sql, new BeanPropertyRowMapper<>(WishList.class), wishlist_id);
+   }
+
 }
