@@ -21,7 +21,7 @@ public class MainController {
         return "/createuser";
     }
 
-    @PostMapping("/newSignUp")
+    @PostMapping("/SignUp")
     public String newSignUp(@ModelAttribute User user) {
         userService.addUser(user);
         return "redirect:/";

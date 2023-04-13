@@ -24,11 +24,13 @@
         <br>
         <input class="submit-button" type="submit" value="Submit">
         <br> <br>
+
+        <p style="color: darkred" th:if="${error}" th:text="${error}"></p>
+        <br>
         <div class="register">
-            <p>Dont have an account? <a href="/signUp">Register</a></p>
+            <p>Dont have an account? <a href="/signUpForm">Register</a></p>
         </div>
     </form>
-    <p th:if="${error}" th:text="${error}"></p>
     <br>
 </div>
 </body>
