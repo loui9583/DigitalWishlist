@@ -18,13 +18,12 @@
     <h1>Login</h1>
     <br>
     <form method="post" th:action="@{/login}">
-        <p><input name="user_name" placeholder="Username" required type="text"/></p>
+        <p><input name="user_name" placeholder="Username" type="text"/></p>
         <br>
-        <p><input name="user_password" placeholder="Password" required type="password"/></p>
+        <p><input name="user_password" placeholder="Password" type="password"/></p>
         <br>
         <input class="submit-button" type="submit" value="Submit">
     </form>
-
     <p th:if="${error}" th:text="${error}"></p>
     <br>
 </div>
