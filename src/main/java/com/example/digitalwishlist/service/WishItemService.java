@@ -1,22 +1,22 @@
 package com.example.digitalwishlist.service;
 
-import com.example.digitalwishlist.model.Wish;
-import com.example.digitalwishlist.repository.WishRepo;
+import com.example.digitalwishlist.model.WishItem;
+import com.example.digitalwishlist.repository.WishItemRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class WishService {
+public class WishItemService {
     @Autowired
-    WishRepo wishRepo;
+    WishItemRepo wishRepo;
 
-    public void addWishToWishList(Wish wish) {
-    }
-    public List<Wish> getWishesFromWishList(int wishlist_id) {
+
+    public List<WishItem> getWishesFromWishList(int wishlist_id) {
         return wishRepo.getWishesFromWishList(wishlist_id);
     }
+
 
 
 }

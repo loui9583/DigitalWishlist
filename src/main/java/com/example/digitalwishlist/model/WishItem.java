@@ -1,12 +1,12 @@
 package com.example.digitalwishlist.model;
 
-public class Wish {
+public class WishItem {
     private int wish_id;
     private int wishlist_id;
     private int item_id;
     private boolean is_reserved;
 
-    public Wish() {
+    public WishItem() {
     }
 
     public int getWish_id() {

@@ -31,6 +31,15 @@ public class WishListController {
         return "userinfo";
     }
 
+    @PostMapping("/goBackToUser")
+    public String goBackToUser(Model model, @RequestParam int wishListId) {
+        User user = userService.getUser(wishListService.getWishList(wishListId).getUser_id());
+        model.addAttribute("user", user);
+        model.addAttribute("wishLists", wishListService.getUserWishLists(user.getUser_id()));
+        return "userinfo";
+    }
+
+
 
 
 
