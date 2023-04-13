@@ -13,18 +13,20 @@
     </a>
 </div>
 <br><br><br><br><br><br>
-
 <div id="content">
     <br>
     <h1>Login</h1>
     <br>
-
     <form method="post" th:action="@{/login}">
         <p><input name="user_name" placeholder="Username" required type="text"/></p>
         <br>
         <p><input name="user_password" placeholder="Password" required type="password"/></p>
         <br>
         <input class="submit-button" type="submit" value="Submit">
+        <br> <br>
+        <div class="register">
+            <p>Dont have an account? <a href="/signUp">Register</a></p>
+        </div>
     </form>
 
     <p th:if="${error}" th:text="${error}"></p>
