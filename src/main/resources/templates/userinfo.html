@@ -24,6 +24,32 @@
         <input class="submit-button" type="submit" value="Submit">
         <br> <br>
     </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Wish List Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+            <tbody>
+                <tr th:each="wishlist : ${wishlists}">
+                    <td th:text="${wishlist.wishList_name}"></td>
+
+
+                    <td>
+                        <form method="post" th:action="@{/openwishlist}">
+                            <input name="wishlist_id" th:value="${wishlist.wishList_id}">
+                            <input type="submit" value="Open">
+                        </form>
+
+                    </td>
+
+
+                </tr>
+            </tbody>
+    </table>
+
 </div>
 </body>
 </html>
