@@ -20,7 +20,6 @@ public class UserController {
     @Autowired
     WishListService wishListService;
 
-
     @GetMapping("/signUpForm")
     public String signUp() {
         return "/createuser";
