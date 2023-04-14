@@ -6,6 +6,10 @@
 </head>
 <body>
 
+<td>
+    <label>Wishlist URL share link</label>
+    <input type="text" th:value="'localhost:8080/wishlist/' + ${wishlist_id}" readonly>
+</td>
 <form method="post" th:action="@{/addwish}">
     <input name="wishlist_id" type="hidden" th:value="${wishlist_id}">
     <label>Choose item from list</label>
