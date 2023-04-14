@@ -34,8 +34,8 @@
 <br><span style="margin-left: 10px">Or add new item</span><br>
 <form style="margin-left: 10px" method="post" th:action="@{/addNewItem}">
     <span><input name="wishlist_id" th:value="${wishListId}" type="hidden"></span>
-    <span><input name="item_name" type="text"></span>
-    <span><input name="item_price" type="text"></span>
+    <span><input name="item_name" placeholder="Item name" type="text"></span>
+    <span><input name="item_price" placeholder="Item price" type="number"></span>
     <input class="submit-button" type="submit" value="Submit">
 </form>
 </div>
@@ -43,18 +43,12 @@
 <div id="content">
 <h2 style="font-weight: bolder; text-decoration: underline;">Wishlist</h2>
     <br>
-<table class="table table-light">
+<table id="wishlist-table">
     <tr>
-        <th>Wish ID</th>
-        <th>Item ID</th>
-        <th>Reserved?</th>
         <th>Item Name</th>
         <th>Item Price</th>
     </tr>
     <tr th:each="wishItem : ${wishItem}">
-        <td th:text="${wishItem.wish_id}"></td>
-        <td th:text="${wishItem.item_id}"></td>
-        <td th:text="${wishItem.isIs_reserved}"></td>
         <td th:text="${wishItem.item_name}"></td>
         <td th:text="${wishItem.item_price}"></td>
     </tr>

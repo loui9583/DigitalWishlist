@@ -65,6 +65,10 @@ tbody {
     box-shadow: rgba(0, 0, 0, 0.03) 0 4px 20px;
 }
 
+#wishlist-table{
+
+}
+
 #logo-img {
     position: sticky;
     height: 100%;
