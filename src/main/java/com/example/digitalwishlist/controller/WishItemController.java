@@ -7,6 +7,8 @@ import com.example.digitalwishlist.service.WishItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -29,6 +31,15 @@ public class WishItemController {
         model.addAttribute("wishItems", wishItems);
         model.addAttribute("items", itemList);
         return "openwishlist";
+    }
+
+    @GetMapping("/wishlist/{wishlist_id}")
+    String openWishListShare(Model model, @PathVariable int wishlist_id) {
+        model.addAttribute("items", itemService.getItems());
+        List<WishItem> wishItems = wishItemService.getWishesFromWishlist(wishlist_id);
+        model.addAttribute("wishListId", wishlist_id);
+        model.addAttribute("wishItems", wishItems);
+        return "sharewishlist";
     }
 
 

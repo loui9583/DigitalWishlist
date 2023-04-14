@@ -30,6 +30,7 @@
             <tr>
                 <th>Wish List Name</th>
                 <th>Actions</th>
+                <th> </th>
             </tr>
         </thead>
             <tbody>
@@ -42,9 +43,11 @@
                             <input name="wishlist_id" th:value="${wishlist.wishList_id}">
                             <input type="submit" value="Open">
                         </form>
-
                     </td>
 
+                    <td>
+                        <input type="text" th:value="'localhost:8080/wishlist/' + ${wishlist.wishList_id}" readonly>
+                    </td>
 
                 </tr>
             </tbody>

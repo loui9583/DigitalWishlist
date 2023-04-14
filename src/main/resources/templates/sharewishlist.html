@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<table class="table table-light">
+  <tr>
+    <th>Reserved?</th>
+    <th>Item Name</th>
+    <th>Item Price</th>
+  </tr>
+  <tr th:each="wishItem : ${wishItems}">
+    <td th:text="${wishItem.isIs_reserved}"></td>
+    <td th:text="${wishItem.item_name}"></td>
+    <td th:text="${wishItem.item_price}"></td>
+  </tr>
+</table>
+
+</body>
+</html>
