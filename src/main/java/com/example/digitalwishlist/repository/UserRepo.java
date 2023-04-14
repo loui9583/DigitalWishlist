@@ -28,6 +28,17 @@ public class UserRepo {
         }
     }
 
+    public User getUser(int user_id) {
+        String sql = "SELECT * FROM user WHERE user_id = ?";
+        try {
+            RowMapper<User> rowMapper = new BeanPropertyRowMapper<>(User.class);
+            User user = template.queryForObject(sql, rowMapper, user_id);
+            return user;
+        } catch (EmptyResultDataAccessException e) {
+            return null;
+        }
+    }
+
 
 
 }

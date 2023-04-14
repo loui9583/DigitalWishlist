@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form method="post" th:action="@{/addwish}">
+    <input name="wishlist_id" type="hidden" th:value="${wishlist_id}">
+    <label>Choose item from list</label>
+    <select name="item_id">
+        <option th:each="item : ${items}"
+                th:value="${item.item_id}"
+                th:text="${item.item_name}"
+                ></option>
+        <input type="submit" value="Add">
+
+    </select>
+
+</form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+            <tbody>
+                <tr th:each="wishItem : ${wishItems}">
+                    <td th:text="${wishItem.item_name}"></td>
+                    <td th:text="${wishItem.item_price}"></td>
+                </tr>
+            </tbody>
+    </table>
+
+</body>
+</html>
