@@ -22,7 +22,6 @@ public class WishItemController {
     WishItemService wishItemService;
     @Autowired
     ItemService itemService;
-
     @Autowired
     WishService wishService;
 
@@ -56,7 +55,10 @@ public class WishItemController {
         itemService.addItem(item_name, price, website);
         int item_id = itemService.getNewestItemId();
         wishService.addWish(wishlist_id, item_id);
-        return "index";
+        model.addAttribute("wishlist_id", wishlist_id);
+        model.addAttribute("wishItems", wishItemService.getWishesFromWishlist(wishlist_id));
+        model.addAttribute("items", itemService.getItems());
+            return "openwishlist";
     }
 
 }
