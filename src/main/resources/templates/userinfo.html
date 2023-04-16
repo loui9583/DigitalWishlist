@@ -10,41 +10,53 @@
 <div id="logo-div">
     <a href="/">
         <img alt="logo" id="logo-img" src="logo.png">
-    </a></div>
-<br><br><br><br><br><br>
-<div id="content">
-    <br>
-    <h1 style="font-size: 20px; font-weight: bolder;">Making new Wishlist</h1>
-    <br>
-    <form method="post" th:action="@{/createWishList}">
-        <p><input name="user_id" th:value="${user.user_id}" type="hidden"/></p>
-        <br>
-        <p><input name="wishlist_name" type="text" placeholder="Wishlist Name"></p>
-        <br>
-        <input class="submit-button" type="submit" value="Submit">
-        <br> <br>
-    </form>
+    </a>
+    <a style="float: right; margin-right: 40px; margin-top: 20px">
+        <span th:text="${user.user_name}"></span><span style="margin-right: 10px">'s user page.</span><button class="submit-button" onclick="window.location.href='/'">Log Out</button>
+    </a>
+</div>
+<br>
 
-    <table>
-        <thead>
+<form class="create-list" method="post" th:action="@{/createWishList}">
+    <span style="font-weight: bolder;">Make new wishlist:</span>
+    <input name="user_id" th:value="${user.user_id}" type="hidden">
+    <span><input name="wishlist_name" placeholder="Wishlist Name" type="text"></span>
+    <input class="submit-button" type="submit" value="Submit">
+</form>
+<br>
+
+<div style="margin-left: 20px; margin-top: 20px">
+<h1 style="font-size: 20px; font-weight: bolder;">Making new Wishlist</h1>
+<br>
+<form method="post" th:action="@{/createWishList}">
+    <p><input name="user_id" th:value="${user.user_id}" type="hidden"/></p>
+    <br>
+    <p><input name="wishlist_name" type="text" placeholder="Wishlist Name"></p>
+    <br>
+    <input class="submit-button" type="submit" value="Submit">
+    <br> <br>
+</form>
+</div>
+
+<div id="content">
+    <div style="margin: 8px">
+        <span style="font-weight: bolder; text-decoration: underline;" th:text="${user.user_name}"></span><span style="font-weight: bolder; text-decoration: underline;">'s wish lists.</span>
+        </div>
+    <table style="margin-right: 10px; margin-left: 10px;">
             <tr>
                 <th>Wish List Name</th>
                 <th>Actions</th>
-                <th> </th>
+                <th>Share link</th>
             </tr>
-        </thead>
-            <tbody>
                 <tr th:each="wishlist : ${wishlists}">
                     <td th:text="${wishlist.wishList_name}"></td>
-
-
                     <td>
                         <form method="post" th:action="@{/openwishlist}">
-                            <input name="wishlist_id" th:value="${wishlist.wishList_id}">
-                            <input type="submit" value="Open">
+                            <span><input name="wishlist_id" th:value="${wishlist.wishList_id}" type="hidden"></span>
+                            <input class="submit-button" type="submit" value="Open wishlist">
                         </form>
+                        <button class="delete-button">Delete</button>
                     </td>
-
                     <td>
                         <input type="text" th:value="'http://20.85.239.54:8080/wishlist/' + ${wishlist.wishList_id}" readonly>
                     </td>

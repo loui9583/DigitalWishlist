@@ -2,15 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Digital Wishlist</title>
+    <link href="sky.svg" rel="icon" type="image/icon type">
+    <link rel="stylesheet" th:href="@{/style.css}" type="text/css"/>
 </head>
 <body>
+<div id="logo-div">
+    <a href="/">
+        <img alt="logo" id="logo-img" src="logo.png">
+    </a>
+    <a style="float: right; margin-top: 20px; margin-right: 40px">
+        <form method="post" th:action="@{/goBackToUser}">
+            <span><input name="wishListId" th:value="${wishListId}" type="hidden"></span>
+            <input class="submit-button" type="submit" value="Go Back">
+        </form>
+    </a>
+</div>
 
 <td>
     <label>Wishlist URL share link</label>
     <input type="text" th:value="'http://20.85.239.54:8080/wishlist/' + ${wishlist_id}" readonly>
 </td>
-<form method="post" th:action="@{/addwish}">
+
+<h3>Add Wish:</h3>
+<form style="margin-top: 70px; margin-left: 10px" method="post" th:action="@{/addwish}">
     <input name="wishlist_id" type="hidden" th:value="${wishlist_id}">
     <label>Choose item from list</label>
     <select name="item_id">
@@ -18,13 +33,22 @@
                 th:value="${item.item_id}"
                 th:text="${item.item_name}"
                 ></option>
-        <input type="submit" value="Add">
-
     </select>
-
+    <input class="submit-button" type="submit" value="Add">
 </form>
 
-    <table>
+<br><span style="margin-left: 10px">Or add new item</span><br>
+<form style="margin-left: 10px" method="post" th:action="@{/addNewItem}">
+    <span><input name="wishlist_id" th:value="${wishListId}" type="hidden"></span>
+    <span><input name="item_name" placeholder="Item name" type="text"></span>
+    <span><input name="item_price" placeholder="Item price" type="number"></span>
+    <input class="submit-button" type="submit" value="Submit">
+</form>
+
+<div id="content">
+    <h2 style="font-weight: bolder; text-decoration: underline;">Wishlist</h2>
+    <br>
+    <table style="margin-left: 100px; padding: 10px">
         <thead>
             <tr>
                 <th>Name</th>
@@ -38,6 +62,6 @@
                 </tr>
             </tbody>
     </table>
-
+</div>
 </body>
 </html>

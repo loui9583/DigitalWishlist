@@ -13,6 +13,9 @@ public class UserService {
     @Autowired
     UserRepo userRepo;
 
+    public User getUser(int user_id) {
+        return userRepo.getUser(user_id);
+    }
 
     public void addUser(User user) {
         userRepo.addUser(user);
