@@ -10,7 +10,33 @@ public class WishItem {
     private String item_name;
     private int item_price;
 
+    private String website;
+
     public WishItem(){
+    }
+
+    public int getWish_id() {
+        return wish_id;
+    }
+
+    public void setWish_id(int wish_id) {
+        this.wish_id = wish_id;
+    }
+
+    public int getWishlist_id() {
+        return wishlist_id;
+    }
+
+    public void setWishlist_id(int wishlist_id) {
+        this.wishlist_id = wishlist_id;
+    }
+
+    public boolean isIs_reserved() {
+        return is_reserved;
+    }
+
+    public void setIs_reserved(boolean is_reserved) {
+        this.is_reserved = is_reserved;
     }
 
     public int getItem_id() {
@@ -37,30 +63,11 @@ public class WishItem {
         this.item_price = item_price;
     }
 
-    public int getWish_id() {
-        return wish_id;
+    public String getWebsite() {
+        return website;
     }
 
-    public void setWish_id(int wish_id) {
-        this.wish_id = wish_id;
+    public void setWebsite(String website) {
+        this.website = website;
     }
-
-    public int getWishlist_id() {
-        return wishlist_id;
-    }
-
-    public void setWishlist_id(int wishlist_id) {
-        this.wishlist_id = wishlist_id;
-    }
-
-
-    public boolean isIs_reserved() {
-        return is_reserved;
-    }
-
-    public void setIs_reserved(boolean is_reserved) {
-        this.is_reserved = is_reserved;
-    }
-
-
 }

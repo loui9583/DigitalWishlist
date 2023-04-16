@@ -15,9 +15,9 @@ public class ItemRepo {
     JdbcTemplate template;
 
 
-   public void addItem(int item_name, int item_price){
-       String sql = "INSERT INTO item (item_name, item_price) VALUES (?, ?)";
-       template.update(sql, item_name, item_price);
+   public void addItem(String item_name, int item_price, String website){
+       String sql = "INSERT INTO item (item_name, item_price, website) VALUES (?, ?, ?)";
+       template.update(sql, item_name, item_price, website);
    }
 
    public List<Item> getItems(){
