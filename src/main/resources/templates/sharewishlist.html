@@ -8,6 +8,8 @@
 </head>
 <body>
 
+<!--@RequestParam int wish_id, @RequestParam boolean is_reserved, @RequestParam int wishlist_id-->
+
 <table class="table table-light">
     <tr>
         <th>Reserved?</th>
@@ -16,7 +18,21 @@
         <th>Website</th>
     </tr>
     <tr th:each="wishItem : ${wishItems}">
-        <td th:text="${wishItem.isIs_reserved}"></td>
+        <td>
+        <span>Reserved? </span> <span th:text="${wishItem.isIs_reserved}"> </span>
+            <form method="post" th:action="@{/reservewish}">
+                <input name="wishlist_id" type="hidden" th:value="${wishlist_id}">
+                <input name="wish_id" type="hidden" th:value="${wishItem.wish_id}">
+                <label>Update reservation status</label>
+                <select name="is_reserved">
+                    <option value="true">Reserve</option>
+                    <option value="false">Remove reservation</option>
+                </select>
+                <input type="submit" value="Submit">
+            </form>
+
+        </td>
+
         <td th:text="${wishItem.item_name}"></td>
         <td th:text="${wishItem.item_price}"></td>
         <td th:text="${wishItem.website}"></td>
