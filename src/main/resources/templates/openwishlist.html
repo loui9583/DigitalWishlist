@@ -11,18 +11,19 @@
 <div id="logo-div">
     <a href="/">
         <img alt="logo" id="logo-img" src="logo.png">
+        <form method="post" th:action="@{/back}" style="display: inline-block; margin-left: 50px; margin-top: 20px">
+            <input name="user_id" th:value="${user.user_id}" type="hidden"/>
+            <button class="submit-button" type="submit">Go Back</button>
+        </form>
         <a style="float: right; margin-right: 40px; margin-top: 20px">
-            <span th:text="${user.user_name}"></span><span style="margin-right: 10px">'s user page.</span><button class="submit-button" onclick="window.location.href='/'">Log Out</button>
+            <span th:text="${user.user_name}"></span><span style="margin-right: 10px;">'s user page.</span><button style="background-color: darkred" class="submit-button" onclick="window.location.href='/'">Log Out</button>
         </a>
     </a>
 </div>
 
 <br><br><br><br>
 
-<form method="post" th:action="@{/back}" style="display: inline-block;">
-    <input name="user_id" th:value="${user.user_id}" type="hidden"/>
-    <button class="submit-button" type="submit">Go Back</button>
-</form>
+
 
 
 <div id="share-box">
