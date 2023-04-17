@@ -15,6 +15,10 @@ public class WishRepo {
         template.update(sql, wishlist_id, item_id, false);
     }
 
+    public void isReserved(int wish_id, boolean is_reserved) {
+        String sql = "UPDATE wish SET is_reserved = ? WHERE  wish_id = ?";
+        template.update(sql, is_reserved, wish_id);
+    }
 
 
 }

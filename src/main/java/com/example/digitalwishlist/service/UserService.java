@@ -22,6 +22,8 @@ public class UserService {
         return userRepo.logIn(user_name, user_password);
     }
 
-
+    public User getUser(int user_id) {
+        return userRepo.getUser(user_id);
+    }
 
 }

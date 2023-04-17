@@ -1,4 +1,4 @@
-package com.example.digitalwishlist;
+package  com.example.digitalwishlist;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

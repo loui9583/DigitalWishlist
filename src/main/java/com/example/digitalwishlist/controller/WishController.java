@@ -36,5 +36,13 @@ public class WishController {
         return "openwishlist";
     }
 
+    @PostMapping("/reservewish")
+    public String isReserved(Model model, @RequestParam int wish_id, @RequestParam boolean is_reserved, @RequestParam int wishlist_id) {
+        wishService.isReserved(wish_id, is_reserved);
+        model.addAttribute("wishlist_id", wishlist_id);
+        String url="redirect:http://20.85.239.54:8080/wishlist/";
+        url+=wishlist_id;
+        return url;
+    }
 
 }

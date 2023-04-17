@@ -13,8 +13,8 @@ public class ItemService {
     @Autowired
     ItemRepo itemRepo;
 
-    public void addItem(int item_name, int item_price){
-        itemRepo.addItem(item_name,item_price);
+    public void addItem(String item_name, int item_price, String website){
+        itemRepo.addItem(item_name, item_price, website);
     }
 
     public List<Item> getItems(){

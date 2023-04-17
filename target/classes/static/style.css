@@ -36,6 +36,13 @@ body {
     margin: 10px;
 }
 
+#share-box {
+    background: linear-gradient(166.64deg, rgb(59, 210, 247) 0.63%, rgb(2, 126, 179) 99.21%);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 50px;
+}
 
 #content {
     text-align: center;

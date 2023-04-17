@@ -1,7 +1,6 @@
 package com.example.digitalwishlist.controller;
 
 import com.example.digitalwishlist.model.User;
-import com.example.digitalwishlist.model.WishList;
 import com.example.digitalwishlist.service.UserService;
 import com.example.digitalwishlist.service.WishListService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,9 +19,9 @@ public class UserController {
     @Autowired
     WishListService wishListService;
 
-    @GetMapping("/signUpForm")
+    @GetMapping("/signUpPage")
     public String signUp() {
-        return "/createuser";
+        return "createuserpage";
     }
 
     @PostMapping("/SignUp")
@@ -33,7 +32,7 @@ public class UserController {
 
     @GetMapping("/loginForm")
     public String showLoginForm() {
-        return "loginform";
+        return "loginPage";
     }
 
     @PostMapping("/login")
@@ -45,7 +44,21 @@ public class UserController {
             return "userinfo";
         } else {
             model.addAttribute("error", "Invalid username or password");
-            return "loginform";
+            return "loginPage";
         }
     }
+
+    @PostMapping("/back")
+    public String backToLogin(@RequestParam int user_id, Model model) {
+        User user = userService.getUser(user_id);
+        if (user != null) {
+            model.addAttribute("user", user);
+            model.addAttribute("wishlists", wishListService.getUserWishlists(user.getUser_id()));
+            return "userinfo";
+        } else {
+            model.addAttribute("error", "Invalid username or password");
+            return "loginPage";
+        }
+    }
+
 }
