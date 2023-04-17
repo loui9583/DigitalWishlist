@@ -2,25 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Add Item for wish</title>
+    <title>Digital Wishlist</title>
+    <link th:href="@{/sky.svg}" rel="icon" type="image/icon type">
+    <link rel="stylesheet" th:href="@{/style.css}" type="text/css"/>
 </head>
 <body>
+<div id="logo-div">
+    <a href="/">
+        <img alt="logo" id="logo-img" th:src="@{/logo.png}">
+    </a>
+</div>
+<br><br><br><br><br><br>
+<div id="content">
 <form method="post" th:action="@{/addwishitem}">
     <input name="wishlist_id" type="hidden" th:value="${wishlist_id}">
     <div class="mb-3">
-        <label for="item_name" class="form-label">Item Name</label>
-        <input type="text" class="form-control" id="item_name" name="item_name" required>
+        <input type="text" class="form-control" placeholder="Item name" id="item_name" name="item_name" required>
     </div>
     <div class="mb-3">
-        <label for="website" class="form-label">Website</label>
-        <input type="text" class="form-control" id="website" name="website" required>
+        <input type="text" class="form-control" placeholder="Website" id="website" name="website" required>
     </div>
     <div class="mb-3">
-        <label for="price" class="form-label">Price</label>
-        <input type="number" class="form-control" id="price" name="price" required>
+        <input type="number" class="form-control" placeholder="Price" id="price" name="price" required>
     </div>
-    <button type="submit" class="btn btn-primary">Add Item</button>
+    <br><br>
+    <button class="submit-button" type="submit">Add Item</button>
 </form>
-
+</div>
 </body>
 </html>

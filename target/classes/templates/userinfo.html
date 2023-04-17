@@ -11,9 +11,13 @@
 <div id="logo-div">
     <a href="/">
         <img alt="logo" id="logo-img" src="logo.png">
-    </a></div>
-<br><br><br>
-<div id="content" style="width: 100%; margin: 0;">
+        <a style="float: right; margin-right: 40px; margin-top: 20px">
+        <span th:text="${user.user_name}"></span><span style="margin-right: 10px">'s user page.</span><button class="submit-button" onclick="window.location.href='/'">Log Out</button>
+   </a>
+    </a>
+</div>
+<br><br><br><br>
+<div id="content" style="width: 50%; margin-right: 24.5%; margin-left: 24.5%">
     <br>
 
 
@@ -40,7 +44,8 @@
                     <td>
                         <form method="post" th:action="@{/openwishlist}">
                             <input type="hidden" name="wishlist_id" th:value="${wishlist.wishList_id}">
-                            <input type="submit" value="Open">
+                            <input type="hidden" name="user_id" th:value="${user.user_id}">
+                            <input class="submit-button" type="submit" value="Open">
                         </form>
                     </td>
                 </tr>

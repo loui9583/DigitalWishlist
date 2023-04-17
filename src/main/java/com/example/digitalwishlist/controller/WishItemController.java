@@ -1,8 +1,10 @@
 package com.example.digitalwishlist.controller;
 
 import com.example.digitalwishlist.model.Item;
+import com.example.digitalwishlist.model.User;
 import com.example.digitalwishlist.model.WishItem;
 import com.example.digitalwishlist.service.ItemService;
+import com.example.digitalwishlist.service.UserService;
 import com.example.digitalwishlist.service.WishItemService;
 import com.example.digitalwishlist.service.WishService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,10 +27,15 @@ public class WishItemController {
     @Autowired
     WishService wishService;
 
+    @Autowired
+    UserService userService;
+
     @PostMapping("/openwishlist")
-    public String openWishlist(Model model, @RequestParam int wishlist_id){
+    public String openWishlist(Model model, @RequestParam int wishlist_id, @RequestParam int user_id){
         List<WishItem> wishItems = wishItemService.getWishesFromWishlist(wishlist_id);
         List<Item> itemList = itemService.getItems();
+        User user = userService.getUser(user_id);
+        model.addAttribute("user", user);
         model.addAttribute("wishlist_id", wishlist_id);
         model.addAttribute("wishItems", wishItems);
         model.addAttribute("items", itemList);
