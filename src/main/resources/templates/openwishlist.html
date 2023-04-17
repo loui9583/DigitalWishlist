@@ -16,7 +16,14 @@
         </a>
     </a>
 </div>
+
 <br><br><br><br>
+
+<form method="post" th:action="@{/back}" style="display: inline-block;">
+    <input name="user_id" th:value="${user.user_id}" type="hidden"/>
+    <button class="submit-button" type="submit">Go Back</button>
+</form>
+
 
 <div id="share-box">
     <form method="post" th:action="@{/addwish}" style="display: inline-block; margin-right: 5%;">

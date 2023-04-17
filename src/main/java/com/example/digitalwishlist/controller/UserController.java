@@ -47,4 +47,18 @@ public class UserController {
             return "loginPage";
         }
     }
+
+    @PostMapping("/back")
+    public String backToLogin(@RequestParam int user_id, Model model) {
+        User user = userService.getUser(user_id);
+        if (user != null) {
+            model.addAttribute("user", user);
+            model.addAttribute("wishlists", wishListService.getUserWishlists(user.getUser_id()));
+            return "userinfo";
+        } else {
+            model.addAttribute("error", "Invalid username or password");
+            return "loginPage";
+        }
+    }
+
 }
