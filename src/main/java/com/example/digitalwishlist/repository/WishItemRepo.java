@@ -16,7 +16,7 @@ public class WishItemRepo {
     JdbcTemplate template;
 
     public List<WishItem> getWishesFromWishlist(int wishlist_id){
-        String sql = "SELECT * FROM wish JOIN item ON wish.item_id = item.item_id WHERE wish.wishlist_id = ?";
+        String sql = "SELECT * FROM wish JOIN item ON wish.item_id = item.item_id WHERE wish.wishlist_id = ? ORDER BY wish.wish_id DESC";
         return template.query(sql, new BeanPropertyRowMapper<>(WishItem.class), wishlist_id);
     }
 
