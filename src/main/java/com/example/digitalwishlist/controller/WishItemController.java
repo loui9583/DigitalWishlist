@@ -3,10 +3,7 @@ package com.example.digitalwishlist.controller;
 import com.example.digitalwishlist.model.Item;
 import com.example.digitalwishlist.model.User;
 import com.example.digitalwishlist.model.WishItem;
-import com.example.digitalwishlist.service.ItemService;
-import com.example.digitalwishlist.service.UserService;
-import com.example.digitalwishlist.service.WishItemService;
-import com.example.digitalwishlist.service.WishService;
+import com.example.digitalwishlist.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,6 +24,8 @@ public class WishItemController {
     @Autowired
     WishService wishService;
 
+    @Autowired
+    WishListService wishListService;
     @Autowired
     UserService userService;
 
@@ -60,12 +59,18 @@ public class WishItemController {
     @PostMapping ("/addwishitem")
     public String addWishItem(Model model, @RequestParam int wishlist_id, @RequestParam String item_name, @RequestParam String website, @RequestParam int price){
         itemService.addItem(item_name, price, website);
+        int user_id = wishListService.getWishList(wishlist_id).getUser_id();
+
+        User user = userService.getUser(user_id);
+
         int item_id = itemService.getNewestItemId();
         wishService.addWish(wishlist_id, item_id);
+        model.addAttribute("user", user);
         model.addAttribute("wishlist_id", wishlist_id);
         model.addAttribute("wishItems", wishItemService.getWishesFromWishlist(wishlist_id));
         model.addAttribute("items", itemService.getItems());
-            return "openwishlist";
+
+        return "openwishlist";
     }
 
 }

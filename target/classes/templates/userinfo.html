@@ -26,8 +26,9 @@
     <form method="post" th:action="@{/createWishList}">
         <p><input name="user_id" th:value="${user.user_id}" type="hidden"/></p>
         <p><input name="wishlist_name" type="text" placeholder="Wishlist Name"></p>
-        <input class="submit-button" type="submit" value="Submit">
+        <input style="background: #004f4f" class="submit-button" type="submit" value="Submit">
         <br><br>
+        <h6 style="border: 2px solid black"> </h6>
         <h1 style="font-size: 20px; font-weight: bolder;">Current wishlists:</h1>
     </form>
 

@@ -13,7 +13,7 @@
         <img alt="logo" id="logo-img" src="logo.png">
         <form method="post" th:action="@{/back}" style="display: inline-block; margin-left: 50px; margin-top: 20px">
             <input name="user_id" th:value="${user.user_id}" type="hidden"/>
-            <button class="submit-button" type="submit">Go Back</button>
+            <button class="submit-button" style="background: darkcyan; margin-left: 25px;" type="submit">Go Back</button>
         </form>
         <a style="float: right; margin-right: 40px; margin-top: 20px">
             <span th:text="${user.user_name}"></span><span style="margin-right: 10px;">'s user page.</span><button style="background-color: darkred" class="submit-button" onclick="window.location.href='/'">Log Out</button>
@@ -27,16 +27,17 @@
 
 
 <div id="share-box">
+
     <form method="post" th:action="@{/addwish}" style="display: inline-block; margin-right: 5%;">
         <input name="wishlist_id" type="hidden" th:value="${wishlist_id}">
-        <label>Add item from list to wishlist</label>
+        <label style="background-color: #525252; color: white">Select item from list</label>
         <select name="item_id">
             <option th:each="item : ${items}"
                     th:value="${item.item_id}"
                     th:text="${item.item_name}"
             ></option>
         </select>
-        <input class="submit-button" type="submit" value="Add">
+        <input class="submit-button" style="background: #525252" type="submit" value="Add Item">
     </form>
     <span> | </span>
 
