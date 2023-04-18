@@ -67,7 +67,9 @@
                 <tr th:each="wishItem : ${wishItems}">
                     <td th:text="${wishItem.item_name}"></td>
                     <td th:text="${wishItem.item_price}"></td>
-                    <td th:text="${wishItem.website}"></td>
+                    <td>
+                        <a th:href="${wishItem.website}" th:text="${wishItem.website}"></a>
+                    </td>
                 </tr>
             </tbody>
     </table>
