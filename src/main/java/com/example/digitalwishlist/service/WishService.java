@@ -18,5 +18,8 @@ public class WishService {
         wishRepo.isReserved(wish_id, is_reserved);
     }
 
+    public void deleteWish(int wish_id){
+        wishRepo.deleteWish(wish_id);
+    }
 
 }

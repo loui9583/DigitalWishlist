@@ -61,6 +61,7 @@
                 <th>Name</th>
                 <th>Price</th>
                 <th>Link to product website</th>
+                <th>Delete wish</th>
             </tr>
         </thead>
             <tbody>
@@ -69,6 +70,13 @@
                     <td th:text="${wishItem.item_price}"></td>
                     <td>
                         <a th:href="${wishItem.website}" th:text="${wishItem.website}"></a>
+                    </td>
+                    <td>
+                        <form method="post" th:action="@{/deleteWish}">
+                            <input name="wishlist_id" th:value="${wishlist_id}" type="hidden"/>
+                            <input name="wish_id" th:value="${wishItem.wish_id}" type="hidden"/>
+                            <button class="submit-button" type="submit"></button>
+                        </form>
                     </td>
                 </tr>
             </tbody>

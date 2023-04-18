@@ -20,5 +20,10 @@ public class WishRepo {
         template.update(sql, is_reserved, wish_id);
     }
 
+    public void deleteWish(int wish_id){
+        String sql = "DELETE FROM wish WHERE wish_id = ?";
+        template.update(sql, wish_id);
+    }
+
 
 }

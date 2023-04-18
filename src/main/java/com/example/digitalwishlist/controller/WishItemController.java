@@ -60,12 +60,12 @@ public class WishItemController {
     public String addWishItem(Model model, @RequestParam int wishlist_id, @RequestParam String item_name, @RequestParam String website, @RequestParam int price){
         itemService.addItem(item_name, price, website);
         int user_id = wishListService.getWishList(wishlist_id).getUser_id();
-
         User user = userService.getUser(user_id);
+        model.addAttribute("user", user);
 
         int item_id = itemService.getNewestItemId();
         wishService.addWish(wishlist_id, item_id);
-        model.addAttribute("user", user);
+
         model.addAttribute("wishlist_id", wishlist_id);
         model.addAttribute("wishItems", wishItemService.getWishesFromWishlist(wishlist_id));
         model.addAttribute("items", itemService.getItems());
@@ -73,4 +73,20 @@ public class WishItemController {
         return "openwishlist";
     }
 
+    @PostMapping("/deleteWish")
+    public String deleteWish(Model model, @RequestParam int wish_id, @RequestParam int wishlist_id){
+        wishService.deleteWish(wish_id);
+        int user_id = wishListService.getWishList(wishlist_id).getUser_id();
+        User user = userService.getUser(user_id);
+        model.addAttribute("user", user);
+        model.addAttribute("wishlist_id", wishlist_id);
+        List<WishItem> wishItems = wishItemService.getWishesFromWishlist(wishlist_id);
+        List<Item> itemList = itemService.getItems();
+        model.addAttribute("wishItems", wishItems);
+        model.addAttribute("items", itemList);
+        return "openwishlist";
+    }
+
+
 }
+
